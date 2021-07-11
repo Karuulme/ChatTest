@@ -1,0 +1,327 @@
+
+input{
+
+    cursor: cell;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("Back/Back.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    cursor: cell;
+}
+.-table{
+    font-family: 'Nunito Sans', sans-serif;
+    width: 900px;
+    height: 650px;
+    margin-top: 125px;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:5px;
+    overflow:hidden;
+    background: transparent;
+
+
+}
+.UserList{
+    width: 90%;
+    height: 96%;
+
+}
+.left{
+    float: left;
+    width: 650px;
+    height: 100%;
+
+
+
+}
+.right{
+
+    width: 250px;
+    float: left;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+.right h1{
+
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9em;
+    padding: 1em;
+    margin: 0;
+    font-weight: 300;
+    text-align: center;
+
+
+
+}
+.right  li{
+    list-style-type: none;
+    margin-top:12px ;
+
+
+}
+
+.username{
+
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 0;
+    color: white;
+    font-size: 0.8em;
+    margin-left: 20px;
+
+}
+
+
+
+
+.Mesaj_icerigi{
+    width: 100%;
+    height: 580px;
+
+}
+.TextBox{
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.05);
+
+}
+.submit{
+    cursor: cell;
+    color: #e4e8e9;
+    background: transparent;
+    width:90px;
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1em;
+    border: 0px;
+}
+.submit:hover{
+    transition-duration: 0.5s;
+    color:#fff;
+
+
+}
+.submit:focus{
+
+    outline: 0;
+}
+.TextBox input{
+    color: #e4e8e9;
+    background: transparent;
+    width:550px ;
+    height: 100%;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1em;
+    border: 0px;
+    padding-left: 20px;
+}
+
+.TextBox input:focus{
+    outline: 0;
+
+
+}
+.TextBox input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #e4e8e9;
+}
+.TextBox input::-moz-placeholder { /* Firefox 19+ */
+    color: #e4e8e9;
+}
+.TextBox input:-ms-input-placeholder { /* IE 10+ */
+    color: #e4e8e9;
+}
+.TextBox input:-moz-placeholder { /* Firefox 18- */
+    color: #e4e8e9;
+}
+.TextBox input::-ms-input-placeholder { /* IE Edge */
+    color: #e4e8e9;
+}
+
+
+
+
+.Add_Search{
+    position: absolute;
+    background: transparent;
+    width: 50px;
+    height: 150px;
+
+    margin-left: 250px;
+
+
+}
+.Add_Search i {
+    font-size: 1.4em;
+    padding: 5px;
+    color: white;
+
+}
+.Add_Search,button{
+    width: 50px;
+    background:transparent;
+    text-align: center;
+    border: 0px;
+
+}
+.Add_Search,button{outline: 0}
+.Add_Search,button:hover i{ cursor: cell ;transition-duration: 0.5s;color: rgba(23, 190, 187, 0.8);}
+
+
+.SearcTextBox{
+    width: 100%;
+    height: 50px;
+    background: transparent;
+
+
+
+}
+.SearcTextBox #SearcText{
+
+    width: 80%;
+    height: 100%;
+    background: transparent;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.8em;
+    border: 0;
+    color:#fff;
+    padding-left: 15px;
+    float: left;
+
+}
+.SearcTextBox #SearcText:focus{
+    outline: 0;
+}
+
+.SearcTextBoxButton{
+
+    width: 20%;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    font-weight:bold ;
+    font-size: 0.9em;
+    border-bottom: 1px solid transparent;
+
+}
+.SearcTextBoxButton:focus{
+
+    outline: 0;
+
+
+}
+.SearcTextBoxButton:hover{
+    border-bottom: 1px solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+.SearcTextBox input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff;
+}
+.SearcTextBox input::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+}
+.SearcTextBox input:-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+.SearcTextBox input:-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+}
+.SearcTextBox input::-ms-input-placeholder { /* IE Edge */
+    color: #fff;
+}
+
+
+
+
+
+
+
+#preloader_1 {
+    position:relative;
+    margin-left: 180px;
+    margin-top: -10px;
+    font-weight: bold;
+    font-size: 1.6em;
+}
+#preloader_1 span {
+    display:block;
+    bottom:0px;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    background:#fff;
+    position:absolute;
+    animation: preloader_1 1.2s infinite ease-in-out;
+
+}
+#preloader_1 span:nth-child(1) {
+    left:12px;
+
+    animation-delay: .1s;
+}
+#preloader_1 span:nth-child(2) {
+    left:23px;
+
+    animation-delay: .5s;
+}
+
+
+@keyframes preloader_1 {
+    0% {
+        height:3px;
+        height:3px;
+        transform:translateY(2px);
+
+
+    }
+    50% {
+        width:9px;
+        height:9px;
+        transform:translateY(5px);
+
+
+    }
+
+    100% {
+        width:3px;
+        height:3px;
+        transform:translateY(2px);
+
+
+    }
+}
+
+.SearcListusername{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 0;
+    width:180px;
+    background: transparent;
+    color: white;
+    font-size: 0.8em;
+    margin-left: 20px;
+
+
+
+}
+
+#searList li{
+    margin-top:30px;
+
+
+}
+
