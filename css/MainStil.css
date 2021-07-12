@@ -171,78 +171,36 @@ body{
 }
 .Add_Search,button{outline: 0}
 .Add_Search,button:hover i{ cursor: cell ;transition-duration: 0.5s;color: rgba(23, 190, 187, 0.8);}
-
-
-.SearcTextBox{
-    width: 100%;
-    height: 50px;
-    background: transparent;
-
-
+.SearcTextboxinput:focus{
+    outline: 0;
 
 }
-.SearcTextBox #SearcText{
+
+.SearcTextboxinput{
 
     width: 80%;
-    height: 100%;
+    height: 40px;
     background: transparent;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 0.8em;
     border: 0;
     color:#fff;
     padding-left: 15px;
-    float: left;
-
 }
-.SearcTextBox #SearcText:focus{
-    outline: 0;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
 }
-
-.SearcTextBoxButton{
-
-    width: 20%;
-    height: 100%;
-    background: transparent;
-    border: 0;
-    font-weight:bold ;
-    font-size: 0.9em;
-    border-bottom: 1px solid transparent;
-
+.SearcTextboxinput::-moz-placeholder { /* Firefox 19+ */
+    color: white;
 }
-.SearcTextBoxButton:focus{
-
-    outline: 0;
-
-
+.SearcTextboxinput:-ms-input-placeholder { /* IE 10+ */
+    color: white;
 }
-.SearcTextBoxButton:hover{
-    border-bottom: 1px solid black;
+.SearcTextboxinput:-moz-placeholder { /* Firefox 18- */
+    color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
-.SearcTextBox input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #fff;
-}
-.SearcTextBox input::-moz-placeholder { /* Firefox 19+ */
-    color: #fff;
-}
-.SearcTextBox input:-ms-input-placeholder { /* IE 10+ */
-    color: #fff;
-}
-.SearcTextBox input:-moz-placeholder { /* Firefox 18- */
-    color: #fff;
-}
-.SearcTextBox input::-ms-input-placeholder { /* IE Edge */
-    color: #fff;
+.SearcTextboxinput::-ms-input-placeholder { /* IE Edge */
+    color: white;
 }
 
 
@@ -324,4 +282,16 @@ body{
 
 
 }
+.isteklistesi{
+    width: 90%;
+    background: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:6px;
+
+
+
+}
+
+
 

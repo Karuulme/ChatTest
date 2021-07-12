@@ -13,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $table = "UserFriendRequestList/" . $istek_alan;
     $userListAlıcı = $database->getReference($table . "/" . $istek_gonderen)->set($data);
 
+
     $data2 = [
         'Status' => 1,
     ];

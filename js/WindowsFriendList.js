@@ -9,20 +9,22 @@ if(UserStatus.length!=0){
         url: 'UsersStatusToFriends.php',
         data: {UserStatus},
         success: function(data) {
-            document.getElementById('sonuc').innerHTML=data;
+            var html='';
+            document.getElementById('FriendList').innerHTML=data;
         }
     });
-
-
-
+}
 }
 
-}
+
+
+
 
 setInterval(function() {
     $.UserStatusNotification();
 },5000 );
-$.UserStatusNotification();
+
+
 function UserAktive(){
 
 

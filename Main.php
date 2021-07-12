@@ -26,16 +26,16 @@ if($_SESSION["User"]=="1"){
             <h1 id="SessionUserName"><?php  echo $_SESSION["UserName"];  ?></h1>
             <div class="Add_Search">
 
-                    <div id="bell" style="width: 26px;height: 26px" >
+                    <div id="bill" style="width: 26px;height: 26px" >
                     </div>
                 <br>
-                <button id="ListSearcFriend" >
+                <button id="ListSearcFriend_" >
 
                     <i class="fas fa-search" ></i>
                 </button>
 
                 <br>
-                <button id="UserFriendAdd_" style="margin-top: 15px">
+                <button id="UserFriendAddU" style="margin-top: 15px">
 
                     <i class="fas fa-plus"></i>
                 </button>
@@ -44,8 +44,6 @@ if($_SESSION["User"]=="1"){
 
                     <i class="fas fa-cog"></i>
                 </button>
-
-
                 <br><a  href="UserClose.php"> <button onclick="UserClose()" style="margin-top: 15px">
                     <i class="fas fa-sign-out-alt"></i></button></a>
             </div>
@@ -55,14 +53,42 @@ if($_SESSION["User"]=="1"){
 
             <div id="searList">
 
-                <div id="FriendList">FriendList</div>
-                <div id="BillNotification">BillNotification</div>
+                <div id="FriendList"></div>
+                <div id="BillNotification">
+                    <div id="BillNotification_">
+
+
+
+
+
+
+
+
+                    </div>
+
+
+                </div>
                 <div id="SearcFrendsDataBaseList">SearcFrendsDataBaseList</div>
                 <div id="SearchFrendsList">
                     <div class="SearcTextBox" id="SearcTextBox">
-                        <input type="text" placeholder="Arama" id="SearcText" name="SearchListFriend"  onkeyup="Gonder()" >
-                        <input class="SearcTextBoxButton" type="button" value="X" onclick="SearcTextBoxClose()">
+                       <table  style="padding: 0px;margin-top: 8px" width="100%">
+                       <tr>
+                           <td width="10%"><button id="SearchFrendsListoff" onclick="SearcTextBoxClose()"><i style="padding:0px" class="fas fa-angle-left fa-2x"></i></button></td>
+
+                           <td>    <input type="text" placeholder="Arama" class="SearcTextboxinput" id="tbxboxsearch" name="SearchListFriend" ></td>
+
+                       </tr>
+
+
+                       </table>
+
+
+
+
+
                     </div>
+                    <div id="aramasonuclari"></div>
+
 
                 </div>
 

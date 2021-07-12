@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$UserNameSearch=$_POST["SearchListFriend"];
+$UserNameSearch=$_POST["metin"];
 $usernames=array();
 $SpaceControl=0;
 $say=0;
@@ -12,12 +12,12 @@ $key=0;
 $get="";
 $SorguKontrol=0;
 $FinishNameControl=0;
+
 if(strlen($UserNameSearch)!=0) {
     if ($UserNameSearch[0] == " ") {
         $SpaceControl = 1;
     }
     if ($SpaceControl == 0) {
-
         $kkontrol = 0;
         include('FireBaseComment.php');
         $fetchdata = $database->getReference("UserList")->getValue();
@@ -58,34 +58,16 @@ if(strlen($UserNameSearch)!=0) {
                     $Status=0;
                                          $fetchdata2_sayac=0;
                                      foreach ($fetchdata2 as $row => $value ){
-
                                            if ($UserList[$j] == array_keys($fetchdata2)[$fetchdata2_sayac]) {
-
-
                                                $Status=array_values($value)[0];
-
-
                                                                 $key=1;
-
-
                                             }
                                          $fetchdata2_sayac++;
                                         }
-
-
                     if (1==$Status && $key==1) {
                         $startname = substr($UserList[$j], 0, strlen($UserNameSearch));
                         $finishname = substr($UserList[$j], strlen($get), strlen($UserList[$j]));
                         // Yükleme Simgesi YERİ--------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
                         ?>
                         <li>  <div class="SearcListusername">
                                                                                  <span style="color: #0b2e13">

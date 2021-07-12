@@ -2,8 +2,11 @@
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 $UserStatusList = $_POST["UserStatus"];
 date_default_timezone_set('Europe/Istanbul');
+$tarih=date('d.m.Y H:i:s');
 include ("FireBaseComment.php");
-if($UserStatusList==" "){
+if($UserStatusList!=" "){
+
+
 
 
 
