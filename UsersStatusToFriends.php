@@ -14,7 +14,7 @@ if($UserStatusList!=" "){
 
     foreach ($UserStatusList as $Key)
     {
-        $comment = "UserStatus/".$Key;
+        $comment = "OnlineUserChecker/".$Key;
         $UserStatus = $database->getReference($comment)->getValue();
         if($UserStatus>0){
 
@@ -25,11 +25,12 @@ if($UserStatusList!=" "){
         {
 
 
-            ?>
-            <li>
+            ?><button>
+        <li >
                 <span style="margin-left:15px"><i class="fas fa-circle" style="font-size: 12px;color: red;"></i></span>
-                <span class="username"><?php echo $Key; ?></span>
+               <span id="<?php echo $Key; ?>" class="username"><?php echo $Key; ?></span>
             </li>
+            </button>
             <?php
 
             //   PASİF HALA GETİRİYORUZ
@@ -37,7 +38,7 @@ if($UserStatusList!=" "){
                 'Active' => 0,
             ];
 
-            $table = "UserStatus/" .$Key;
+            $table = "OnlineUserChecker/" .$Key;
             $database->getReference($table)->update($Upp);
 
 
@@ -48,11 +49,12 @@ if($UserStatusList!=" "){
 
             ?>
 
-
-            <li>
+            <button>
+            <li  >
                 <span style="margin-left:15px"><i class="fas fa-circle" style="font-size: 12px;color: #00ff20;"></i></span>
-                <span class="username"><?php echo $Key; ?></span>
+             <span id="<?php echo $Key; ?>"  class="username"><?php echo $Key; ?></span>
             </li>
+            </button>
 
 
 

@@ -11,8 +11,11 @@ error_reporting(0);
      include('FireBaseComment.php');
      $fetchdata = $database->getReference("Users")->getValue();
      if ($fetchdata > 0) {
+
          foreach ($fetchdata as $key => $row) {
+
              if ($row["E-Mail"] == $Usermail && $row["Password"] == $Userpassword) {
+
                  $_SESSION["User"] = "1";
                  header("Location:Main.php");
                  $_SESSION["UserName"]=$row["Username"];

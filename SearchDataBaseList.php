@@ -20,11 +20,11 @@ if(strlen($UserNameSearch)!=0) {
     if ($SpaceControl == 0) {
         $kkontrol = 0;
         include('FireBaseComment.php');
-        $fetchdata = $database->getReference("UserList")->getValue();
+        $fetchdata = $database->getReference("Users")->getValue();
         if ($fetchdata > 0) {
             foreach ($fetchdata as $row) {
-                if ($row["Name"] != $_SESSION["UserName"]) {
-                    $GetName = $row["Name"];
+                if ($row["Username"] != $_SESSION["UserName"]) {
+                    $GetName = $row["Username"];
                     if (strlen($GetName) >= strlen($UserNameSearch)) {
                         $get = substr($GetName, 0, strlen($UserNameSearch));
                         $get2 = substr($GetName, strlen($get), strlen($GetName));

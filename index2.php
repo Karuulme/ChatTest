@@ -78,8 +78,8 @@ else{
 
     <div class="dizayn">
         <form action="OturunOpen.php" method="POST" >
-            <input type="text" placeholder="E-Posta" name="useremail"  >
-            <input type="password" placeholder="Şifre"  name="userpass">
+            <input type="text" placeholder="Kullanıcı Adı"  >
+            <input type="password" placeholder="Şifre" >
             <input type="submit" value="LOGİN" style="height: 50px;width:275px;background: #f2f2f2;;color: black ">
 
         </form>

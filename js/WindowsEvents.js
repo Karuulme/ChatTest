@@ -1,3 +1,54 @@
+$(document).ready(function() {
+
+/*
+    $("#tbxboxsearch").keydown(function () {
+        var metin = $('#tbxboxsearch').val();
+        $.ajax({
+                type: "POST",
+                url: 'SearchDataBaseList.php',
+                data: {metin},
+                success: function (data) {
+                    //     document.getElementById('aramasonuclari').innerHTML = "";
+                    document.getElementById("aramasonuclari").innerHTML = data;
+                }
+            }
+        )
+    })
+*/
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function FriendsAdd(Name){
 
@@ -144,10 +195,9 @@ $(document).ready(function() {
     }
     )
 
-
-
-    $("#SearchFrendsListoff").click(function () {
+    $("#BillNotification_").on("click","#SearchfrendsListofff",function () {
         DivIds.forEach(function (item) {
+
                 var Id = document.getElementById(item);
 
                 if (item!="FriendList") {

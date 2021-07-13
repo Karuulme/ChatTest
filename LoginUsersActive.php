@@ -5,14 +5,16 @@ if($_SESSION["User"]=="1"){
 date_default_timezone_set('Europe/Istanbul');
 $tarih = date('d.m.Y H:i:s');
 include ("FireBaseComment.php");
-$sn = date('s') + 30;
+$dk = date('i') +1;
 $Upp = [
     'Active' => 1,
-    'Date' => date('d.m.Y H:i:' . $sn . '')
+    'Date' => date('d.m.Y H:' . $dk . ':s')
 ];
 
-$table = "UserStatus/" . $_SESSION["UserName"];
+$table = "OnlineUserChecker/" . $_SESSION["UserName"];
 $database->getReference($table)->update($Upp);
+
+
 
 
 

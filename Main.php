@@ -11,15 +11,20 @@ if($_SESSION["User"]=="1"){
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
         <link href="css/MainStil.css" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <title><?php  echo $_SESSION["UserName"];  ?></title>
     </head>
     <body>
     <div  class="-table" >
-        <div class="left">
-            <div class="Mesaj_icerigi">
+        <div class="left" >
+            <div class="Mesaj_icerigi"  id="MessageBox"  style="overflow-y: auto;">
+
+
+
+
             </div>
             <div class="TextBox">
-                <input type="text" placeholder="Bir şeyler yaz..." >
-                <button class="submit"> GÖNDER</button>
+                <input type="text" id="Mesajtext" placeholder="Bir şeyler yaz..." >
+                <button id="submit" class="submit"> GÖNDER</button>
             </div>
         </div>
         <div class="right">
@@ -111,7 +116,7 @@ if($_SESSION["User"]=="1"){
     <script src="js/Notification.js" charset="UTF-8"></script>
     <script src="js/WindowsEvents.js" charset="UTF-8"></script>
     <script src="js/WindowsFriendList.js" charset="UTF-8"></script>
-
+        <script src="js/MessageOperation.js" charset="UTF-8"></script>
     </body>
     </html>
 

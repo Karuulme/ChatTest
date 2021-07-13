@@ -1,6 +1,7 @@
 
 
 $.UserStatusNotification=function() {
+
 if(UserStatus.length!=0){
 
 

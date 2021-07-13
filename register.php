@@ -15,51 +15,63 @@ if ( $_SESSION["User"]=="1") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Login V2</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-  <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="css/util.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <!--===============================================================================================-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+    <style>
+
+        body{
+            padding: 0;
+            margin: 0;
+            background: #f2f2f2;
+        }
+        .mid{
+            width: 350px;
+
+            box-shadow: 0px 5px 9px 5px #dddddd;
+            background: white;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 5%;
+        }
+        .dizayn{
+
+            text-align: center;
+        }
+        .dizayn input{
+            margin-top:20px;
+            border: 1px solid ;
+            background: white;
+            width: 250px;
+            padding: 10px;
+            height: 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border:1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-<div class="limiter" style="cursor: default">
-  <div class="container-login100">
-    <div class="wrap-login100" style="cursor: cell">
+<div class="mid">
+    <div class="dizayn">
         <?php
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
         date_default_timezone_set('Europe/Istanbul');
-        $User_Name=$_POST["User_Name"];
-        $Email=$_POST["Email"];
-        $Password1Key=$_POST["pass"];
-        $Password2Key=$_POST["pass2"];
+        $Name=$_POST["Ad"];
+        $Surname=$_POST["Soyad"];
+        $User_Name=$_POST["Kullanıcı"];
+        $Email=$_POST["E-Posta"];
+        $Password1Key=$_POST["Sifre"];
+        $Password2Key=$_POST["Sifretekrarı"];
 
 
-       str_split($Email);
+        str_split($Email);
 
-            $MailKontrol=0;
-            for($i=0; $i<strlen($Email);$i++){
+        $MailKontrol=0;
+        for($i=0; $i<strlen($Email);$i++){
 
             if($Email[$i]=="@"){
                 $MailKontrol=1;
@@ -68,223 +80,148 @@ if ( $_SESSION["User"]=="1") {
             }
 
 
-            }
-            if($MailKontrol==1 && $Password1Key==$Password2Key){
-              include('FireBaseComment.php');
+        }
+        if($MailKontrol==1 && $Password1Key==$Password2Key){
+            include('FireBaseComment.php');
 
 
             $data = [
-                'Name' => $User_Name,
-                'Mail' => $Email,
+                'Username' => $User_Name,
+                'E-Mail' => $Email,
                 'Password' => $Password1Key,
-                'RegisterDate' => date('d.m.Y H:i:s')
+                'Registered' => date('d.m.Y H:i:s'),
+                'Ban' => 0,
+                'Rand' => "User",
+                'Name' => $Name,
+                'Surname' =>  $Surname,
+
+
             ];
 
-            $table = "UserList";
-            $database->getReference($table)->push($data);
+            $table = "Users/".$User_Name;
+            $database->getReference($table)->set($data);
 
-        $sn = date('s') + 30;
-        $data = [
-            'Active' => 0,
-            'Date' => date('d.m.Y H:i:s'),
-        ];
+            $sn = date('s') + 30;
+            $data = [
+                'Active' => 0,
+                'Date' => date('d.m.Y H:i:s'),
+                'Status'=>1
+            ];
 
-        $table = "UserStatus/" . $User_Name;
-        $userListAlıcı = $database->getReference($table)->set($data);
-
-
-
-
-
-
-        ?>
-        <span class="login100-form-title p-b-26" style="color:#28a745">
-                 Kayıt Başarılı
-					</span>
-
-
-        <div class="text-center p-t-115">
-						<span class="txt1">
-                          <a href="index.php">    <i class="fas fa-arrow-left fa-2x"><font style="margin-left: 20px;">login</font></i></a>
-						</span>
-
-
-
-            <?php
-
-            }
-            else{
-                ?>
+            $table = "OnlineUserChecker/" . $User_Name;
+            $userListAlıcı = $database->getReference($table)->set($data);
 
 
 
 
 
 
-            <form class="login100-form validate-form" action="" method="POST">
-
-
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-
-
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                    <input class="input100" type="text" name="User_Name" style="cursor: cell">
-                    <span class="focus-input100" data-placeholder="User Name"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                    <input class="input100" type="text" name="Email" style="cursor: cell">
-                    <span class="focus-input100" data-placeholder="Email"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-                    <input class="input100" type="password" name="pass" style="cursor: cell">
-                    <span class="focus-input100" data-placeholder="Password"></span>
-                </div>
-                <div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-                    <input class="input100" type="password" name="pass2" style="cursor: cell">
-                    <span class="focus-input100" data-placeholder="Password"></span>
-                </div>
-
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn">
-                            <input type="submit" value="SİNG UP" style="width: 100%;height: 100%;background: transparent;color: white;cursor: pointer">
-                        </button>
-
-                    </div>
-
-                    <span style="margin-top: 25px;color: red">Bilgileriniz kontrol ediniz...</span>
-                </div>
-
-                <div class="text-center p-t-115">
-						<span class="txt1">
-                          <a href="index.php">LOGİN</a>
-						</span>
-
-
-
-
-
-
-                    <?php
-
-
-
-            }
-
-
-
-
-
-
-
-
-            }
-        else{
             ?>
 
+            <div style="width: 100%;height: 150px">
+                <h2 style="padding:10px;margin: 30px">
+                    Kayıt Başarılı
+                </h2>
 
 
 
 
-        <form class="login100-form validate-form" action="" method="POST">
-
-
-					<span class="login100-form-title p-b-26">
-						Welcome
-					</span>
-
-
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                <input class="input100" type="text" name="User_Name" style="cursor: cell">
-                <span class="focus-input100" data-placeholder="User Name"></span>
+                <a href="index.php" style="text-decoration:none;font-size: 1.1em;" > login</a>
             </div>
-
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-                <input class="input100" type="text" name="Email" style="cursor: cell">
-                <span class="focus-input100" data-placeholder="Email"></span>
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-                <input class="input100" type="password" name="pass" style="cursor: cell">
-                <span class="focus-input100" data-placeholder="Password"></span>
-            </div>
-            <div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-                <input class="input100" type="password" name="pass2" style="cursor: cell">
-                <span class="focus-input100" data-placeholder="Password"></span>
-            </div>
-
-            <div class="container-login100-form-btn">
-                <div class="wrap-login100-form-btn">
-                    <div class="login100-form-bgbtn"></div>
-                    <button class="login100-form-btn">
-                        <input type="submit" value="SİNG UP" style="width: 100%;height: 100%;background: transparent;color: white;cursor: pointer">
-                    </button>
-                </div>
-            </div>
-
-            <div class="text-center p-t-115">
-						<span class="txt1">
-                          <a href="index.php">LOGİN</a>
-						</span>
-
 
 
 
             <?php
 
-
-
         }
-
-
-
-
+        else{
         ?>
 
 
 
-        </div>
-      </form>
+
+
+
+        <form action=" " method="POST">
+            <input type="text" placeholder="Ad"  name="Ad" >
+            <input type="text" placeholder="Soyad" name="Soyad" >
+            <input type="text" placeholder="Kullanıcı Adı"  name="Kullanıcı">
+            <input type="text" placeholder="E-Posta"  name="E-Posta">
+            <input type="password" placeholder="Şifre" name="Şifre" >
+            <input type="password" placeholder="Şifre Tekrarı" name="Sifretekrarı">
+            <input type="submit" value="LOGİN" style="height: 50px;width:275px;background: #f2f2f2;;color: black;margin-bottom: 50px ">
+        </form>
+
+
+
+        <h5 style="padding: 20px">Bilgilerinizi Kontrol Ediniz</h5>
     </div>
-  </div>
+
+
+
+
+    <?php
+
+
+
+    }
+
+
+
+
+
+
+
+
+    }
+    else{
+    ?>
+
+
+
+
+    <form action=" " method="POST">
+        <input type="text" placeholder="Ad"  name="Ad" >
+        <input type="text" placeholder="Soyad" name="Soyad" >
+        <input type="text" placeholder="Kullanıcı Adı"  name="Kullanıcı">
+        <input type="text" placeholder="E-Posta"  name="E-Posta">
+        <input type="password" placeholder="Şifre" name="Şifre" >
+        <input type="password" placeholder="Şifre Tekrarı" name="Şifretekrarı">
+        <input type="submit" value="LOGİN" style="height: 50px;width:275px;background: #f2f2f2;;color: black;margin-bottom: 50px ">
+    </form>
+
 </div>
 
 
-<div id="dropDownSelect1"></div>
 
-<!--===============================================================================================-->
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
+
+
+<?php
+
+
+
+}
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
 
 </body>
 </html>
