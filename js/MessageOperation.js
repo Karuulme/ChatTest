@@ -1,23 +1,12 @@
 var Target="";
 var isim="";
 
+var saat =0;
+var aygun=0;
+let now = new Date();
+var ay=now.getMonth()+1;
+var tarih="";
 $(document).ready(function() {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     $("#submit").click(function (){
 
             if(isim.length!=0){
@@ -43,19 +32,18 @@ $(document).ready(function() {
 
     })
 
-    $("#FriendList button").click(function (){
+    $("#FriendList").on("click","button",function () {
 
-        console.log($( this ).index());
-        var a=$( this ).text();
-        isim=a.trim();
+        var a = $(this).text();
+        isim = a.trim();
 
 
         var todoRef2 = firebase.database().ref().child("UserFriendRequestList").child(SessionUserName).child(isim);
 
-        todoRef2.on("value",function (item){
+        todoRef2.on("value", function (item) {
 
 
-            Target=item.val().messageoperation;
+            Target = item.val().messageoperation;
 
 
         })
@@ -63,26 +51,22 @@ $(document).ready(function() {
 
 
 
+
         var message = firebase.database().ref().child("message").child(Target);
 
         message.on("value",function (item){
-
+            document.getElementById('MessageBox').innerHTML =" ";
             var html='';
             var tarihcontrol=0;
                 item.forEach(function (t){
-                    let now = new Date();
-                    var tarih = (t.val().Date).split(" ");
 
-                    var saat =tarih[1].split(":");
-                    var aygun=tarih[0].split(".");
-                console.log(aygun[1]+"<"+now.getMonth()+"---"+aygun[0]+"<"+now.getDate());
-                   if(aygun[1]<=now.getMonth() && aygun[0]<now.getDate() && tarihcontrol==0){
-
-                           tarihcontrol=1;
-                           html+='<h4 align="center" style="color: white">Dün ve öncesi</h4>';
-                       }
+                    tarih = (t.val().Date).split(" ");
 
 
+                    console.log(aygun[1]+"<"+ay+"---"+aygun[0]+"<"+now.getDate());
+
+                  saat =tarih[1].split(":");
+                     aygun=tarih[0].split(".");
 
 
 
@@ -102,11 +86,15 @@ $(document).ready(function() {
 
 
 
-                    }
+                    }})
 
 
+            if(aygun[1]<=ay && aygun[0]<now.getDate()) {
 
-                })
+                tarihcontrol=1;
+                html+='<h4 align="center" style="color: white">Dün ve öncesi</h4>';
+            }
+
             document.getElementById('MessageBox').innerHTML =html;
 
 

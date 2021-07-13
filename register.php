@@ -147,7 +147,7 @@ if ( $_SESSION["User"]=="1") {
             <input type="text" placeholder="Soyad" name="Soyad" >
             <input type="text" placeholder="Kullanıcı Adı"  name="Kullanıcı">
             <input type="text" placeholder="E-Posta"  name="E-Posta">
-            <input type="password" placeholder="Şifre" name="Şifre" >
+            <input type="password" placeholder="Şifre" name="Sifre" >
             <input type="password" placeholder="Şifre Tekrarı" name="Sifretekrarı">
             <input type="submit" value="LOGİN" style="height: 50px;width:275px;background: #f2f2f2;;color: black;margin-bottom: 50px ">
         </form>
@@ -185,8 +185,8 @@ if ( $_SESSION["User"]=="1") {
         <input type="text" placeholder="Soyad" name="Soyad" >
         <input type="text" placeholder="Kullanıcı Adı"  name="Kullanıcı">
         <input type="text" placeholder="E-Posta"  name="E-Posta">
-        <input type="password" placeholder="Şifre" name="Şifre" >
-        <input type="password" placeholder="Şifre Tekrarı" name="Şifretekrarı">
+        <input type="password" placeholder="Şifre" name="Sifre" >
+        <input type="password" placeholder="Şifre Tekrarı" name="Sifretekrarı">
         <input type="submit" value="LOGİN" style="height: 50px;width:275px;background: #f2f2f2;;color: black;margin-bottom: 50px ">
     </form>
 

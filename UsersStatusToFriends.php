@@ -25,12 +25,16 @@ if($UserStatusList!=" "){
         {
 
 
-            ?><button>
-        <li >
-                <span style="margin-left:15px"><i class="fas fa-circle" style="font-size: 12px;color: red;"></i></span>
-               <span id="<?php echo $Key; ?>" class="username"><?php echo $Key; ?></span>
-            </li>
-            </button>
+            ?>
+
+            <button style="padding: 8px">
+                <div style="float: left;background: red;width: 15px;height: 15px;border-radius: 100%"></div>
+
+                    <?php echo $Key; ?>
+
+            </button><br>
+
+
             <?php
 
             //   PASİF HALA GETİRİYORUZ
@@ -49,12 +53,12 @@ if($UserStatusList!=" "){
 
             ?>
 
-            <button>
-            <li  >
-                <span style="margin-left:15px"><i class="fas fa-circle" style="font-size: 12px;color: #00ff20;"></i></span>
-             <span id="<?php echo $Key; ?>"  class="username"><?php echo $Key; ?></span>
-            </li>
-            </button>
+            <button style="padding: 8px">
+                <div style="background: darkgreen;width: 15px;height: 15px;float: left;border-radius: 100%"></div>
+
+                <?php echo $Key; ?>
+
+            </button><br>
 
 
 

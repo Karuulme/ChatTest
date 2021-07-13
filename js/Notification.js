@@ -47,7 +47,7 @@ var ref;
             }
             if(item.val().Status==1){
                 userwants[userS]=item.key.toString();
-                console.log( userwants[userS]+"***");
+
 
 
                 userS++;
